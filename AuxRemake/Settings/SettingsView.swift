@@ -16,6 +16,9 @@ struct SettingsView: View {
     
     var body: some View {
         List {
+            if let userId = UserManager.shared.getCurrentUserId() {
+                        Text("User ID: \(userId)")
+                    }
             Button("Log Out"){
                 Task {
                     do {
