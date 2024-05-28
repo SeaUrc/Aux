@@ -20,7 +20,7 @@ final class CreateAccountEmailViewModel: ObservableObject {
             var userData: [String:Any] = [
                 "user_id": authDataResult.uid,
                 "date_created": Timestamp(),
-                "music_api_connected": authDataResult.musicAPIConnected ?? false
+                "music_api_connected": authDataResult.musicAPIConnected ?? false,
             ]
             if let email = authDataResult.email {
                 userData["email"] = email
@@ -28,7 +28,7 @@ final class CreateAccountEmailViewModel: ObservableObject {
             if let photoUrl = authDataResult.photoUrl {
                 userData["photo_url"] = photoUrl
             }
-            try await userRef.setData(userData, merge: false)
+            try await userRef.setData(userData, merge: true)
         }
         return true
     }

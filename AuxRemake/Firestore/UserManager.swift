@@ -16,20 +16,18 @@ struct DBUser {
     let photoUrl: String?
     let dateCreated: Date?
     var musicAPIConnected = false
-    let firstName: String?
+    let name: String?
 }
 
 final class UserManager {
     static let shared = UserManager()
 
     func createNewUser(googleUser: GIDGoogleUser, auth: AuthDataResultModel) async throws {
-        let firstName = googleUser.profile?.givenName  // Retrieve first name here
 
         var userData: [String:Any] = [
             "user_id": auth.uid,
             "date_created": Timestamp(),
             "music_api_connected": auth.musicAPIConnected ?? false,
-            "first_name": firstName! // Add the first name here
         ]
 
         if let email = auth.email {
@@ -47,13 +45,8 @@ final class UserManager {
         return Auth.auth().currentUser?.uid
     }
 
-    func getName() async throws -> String? {
-        guard let userId = Auth.auth().currentUser?.uid else {
-            return nil
-        }
-
-        let user = try await getUser(userId: userId)
-        return user.firstName
+    func getName() -> String? {
+        return Auth.auth().currentUser?.displayName
     }
 
     func getUser(userId: String) async throws -> DBUser {
@@ -67,9 +60,9 @@ final class UserManager {
         let photoUrl = data["photo_url"] as? String
         let dateCreated = (data["date_created"] as? Timestamp)?.dateValue()
         let musicAPIConnected = data["music_api_connected"] as? Bool ?? false
-        let firstName = data["first_name"] as? String
+        let name = data["first_name"] as? String
 
-        return DBUser(userId: userId, email: email, photoUrl: photoUrl, dateCreated: dateCreated, musicAPIConnected: musicAPIConnected, firstName: firstName)
+        return DBUser(userId: userId, email: email, photoUrl: photoUrl, dateCreated: dateCreated, musicAPIConnected: musicAPIConnected, name: name)
     }
 }
 

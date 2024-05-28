@@ -3,7 +3,6 @@
 //  AuxRemake
 //
 //  Created by Josh Grewal on 5/26/24.
-// Josh is stinky poo poo peep ee
 
 import SwiftUI
 import Firebase

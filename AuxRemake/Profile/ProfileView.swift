@@ -4,11 +4,6 @@
 //
 //  Created by Josh Grewal on 5/27/24.
 //
-//  ProfileView.swift
-//  AuxRemake
-//
-//  Created by Josh Grewal on 5/27/24.
-//
 
 import SwiftUI
 import FirebaseFirestore
@@ -31,12 +26,22 @@ struct ProfileView: View {
     @StateObject private var viewModel = ProfileViewModel()
     @Binding var showSignInView: Bool
 
+    @State private var userId: String? = nil
+
     var body: some View {
         List {
-                Text("Welcome!")
+            if let name = UserManager.shared.getName() {
+                Text("Welcome \(name)!")
+                    .font(.headline) // Makes the text bigger
+
+            }
         }
         .task {
-            try? await viewModel.loadCurrentUser()
+            do {
+                try await viewModel.loadCurrentUser()
+            } catch {
+                // handle error
+            }
         }
         .navigationTitle("Profile")
         .toolbar {
@@ -51,6 +56,7 @@ struct ProfileView: View {
         }
     }
 }
+
 
 struct ProfileView_Previews: PreviewProvider {
     static var previews: some View {
