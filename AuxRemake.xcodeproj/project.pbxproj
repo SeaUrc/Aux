@@ -14,6 +14,7 @@
 		910048632C0582B3003729FD /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910048622C0582B3003729FD /* AuthenticationView.swift */; };
 		910048672C0582EE003729FD /* SignInEmailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910048662C0582EE003729FD /* SignInEmailView.swift */; };
 		9100486B2C06235E003729FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9100486A2C06235E003729FD /* Assets.xcassets */; };
+		910F6F5C2C07463600578DBE /* FeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 910F6F5B2C07463600578DBE /* FeedView.swift */; };
 		911887742C0420DB001C128F /* AuxRemakeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911887732C0420DB001C128F /* AuxRemakeApp.swift */; };
 		911887762C0420DB001C128F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911887752C0420DB001C128F /* ContentView.swift */; };
 		9118877B2C0420DD001C128F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9118877A2C0420DD001C128F /* Preview Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		910048622C0582B3003729FD /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
 		910048662C0582EE003729FD /* SignInEmailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInEmailView.swift; sourceTree = "<group>"; };
 		9100486A2C06235E003729FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		910F6F5B2C07463600578DBE /* FeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedView.swift; sourceTree = "<group>"; };
 		911887702C0420DB001C128F /* AuxRemake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AuxRemake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		911887732C0420DB001C128F /* AuxRemakeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuxRemakeApp.swift; sourceTree = "<group>"; };
 		911887752C0420DB001C128F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -121,6 +123,14 @@
 			path = Subviews;
 			sourceTree = "<group>";
 		};
+		910F6F5A2C07462000578DBE /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				910F6F5B2C07463600578DBE /* FeedView.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		911887672C0420DB001C128F = {
 			isa = PBXGroup;
 			children = (
@@ -141,6 +151,7 @@
 		911887722C0420DB001C128F /* AuxRemake */ = {
 			isa = PBXGroup;
 			children = (
+				910F6F5A2C07462000578DBE /* Feed */,
 				910048602C058267003729FD /* Auth */,
 				9100485B2C057EA3003729FD /* Firestore */,
 				9100484E2C057423003729FD /* Settings */,
@@ -275,6 +286,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				910F6F5C2C07463600578DBE /* FeedView.swift in Sources */,
 				911887A42C051BE4001C128F /* SignInGoogleHelper.swift in Sources */,
 				911887952C042EFA001C128F /* SettingsView.swift in Sources */,
 				9100485D2C057EC9003729FD /* UserManager.swift in Sources */,
