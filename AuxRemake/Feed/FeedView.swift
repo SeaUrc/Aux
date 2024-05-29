@@ -1,16 +1,14 @@
 //
-//  ProfileView.swift
+//  FeedView.swift
 //  AuxRemake
 //
-//  Created by Josh Grewal on 5/27/24.
+//  Created by Josh Grewal on 5/29/24.
 //
 
 import SwiftUI
-import FirebaseFirestore
-import GoogleSignIn
 
 @MainActor
-final class ProfileViewModel: ObservableObject {
+final class FeedViewModel: ObservableObject {
     @Published private(set) var user: DBUser? = nil
 
     func loadCurrentUser() async throws {
@@ -22,20 +20,16 @@ final class ProfileViewModel: ObservableObject {
     }
 }
 
-struct ProfileView: View {
-    @StateObject private var viewModel = ProfileViewModel()
+struct FeedView: View {
+    @StateObject private var viewModel = FeedViewModel()
     @Binding var showSignInView: Bool
-
-    @State private var userId: String? = nil
 
     var body: some View {
         List {
-            if let name = UserManager.shared.getName() {
-                Text("Welcome \(name)!")
+                Text("Feedview")
                     .font(.headline) // Makes the text bigger
 
             }
-        }
         .task {
             do {
                 try await viewModel.loadCurrentUser()
@@ -43,25 +37,16 @@ struct ProfileView: View {
                 // handle error
             }
         }
-        .navigationTitle("Profile")
+        .navigationTitle("Feed")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 NavigationLink {
-                    FeedView(showSignInView: $showSignInView)
+                    SettingsView(showSignInView: $showSignInView)
                 } label: {
-                    Text("Feed")
+                    Image(systemName: "gear")
                         .font(.headline)
                 }
             }
-        }
-    }
-}
-
-
-struct ProfileView_Previews: PreviewProvider {
-    static var previews: some View {
-        NavigationStack {
-            ProfileView(showSignInView: .constant(false))
         }
     }
 }
