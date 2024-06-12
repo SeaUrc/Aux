@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import NavBar from "./_components/NavBar";
 import ReviewCards from "./_components/ReviewCards";
 import Link from "next/link";
@@ -10,6 +10,13 @@ export default function HomePage() {
   const [reviewInd, setReviewInd] = useState(0);
   const reviewVis = 1;
   let reviews = [["AMAZING APP I LOVE IT SO MUCH I SPEND 10 HOURS ON IT A DAY", "Josh"], ["review two", "nick"], ["review three", "patrick"], ["review four", "john"]];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setReviewInd((reviewInd + 1)%reviews.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [reviewInd]);
 
   return (
     <main className="bg-gray-900 h-screen w-screen">

@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.animation-duration {
+    animation-duration: 0.5s;
+}
+
+.animate-slide-in {
+    animation-name: slide-in;
+}
+
+.animate-slide-in-next {
+    animation-name: slide-in-next;
+}
+
+.animate-slide-out-prev {
+    animation-name: slide-out-prev;
+}
+
+.animate-slide-out {
+    animation-name: slide-out;
+}
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-in-next {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-out-prev {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes slide-out {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
