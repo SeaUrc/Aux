@@ -17,6 +17,7 @@ struct DBUser {
     let dateCreated: Date?
     var musicAPIConnected = false
     let name: String?
+    
 }
 
 final class UserManager {
