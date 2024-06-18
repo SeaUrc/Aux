@@ -5,36 +5,45 @@ import NavBar from "./_components/NavBar";
 import ReviewCards from "./_components/ReviewCards";
 import Link from "next/link";
 import Image from "next/image";
+import ReviewCarousel from "./_components/ReviewCarousel";
 
 export default function HomePage() {
-  const [reviewInd, setReviewInd] = useState(0);
-  const reviewVis = 1;
-  let reviews = [["AMAZING APP I LOVE IT SO MUCH I SPEND 10 HOURS ON IT A DAY", "Josh"], ["review two", "nick"], ["review three", "patrick"], ["review four", "john"]];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setReviewInd((reviewInd + 1)%reviews.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [reviewInd]);
+  //let reviews = [["AMAZING APP I LOVE IT SO MUCH I SPEND 10 HOURS ON IT A DAY", "Josh"], ["review two", "nick"], ["review three", "patrick"], ["review four", "john"]];
+  const reviews = [
+    {
+      text: 'This app is amazing! I use it every day and it has made my life so much easier.',
+      author: 'John Doe'
+    },
+    {
+      text: 'I highly recommend this app to anyone looking for a great solution. The features are impressive and the user interface is intuitive.',
+      author: 'Jane Smith'
+    },
+    {
+      text: 'This app has exceeded my expectations. The customer support is also excellent.',
+      author: 'Bob Johnson'
+    }
+  ];
 
   return (
     <main className="bg-gray-900 h-screen w-screen">
 
       <div className="flex flex-col items-center">
         <div className="w-4/6">
-          <NavBar />
+          {/* <NavBar /> */}
           <div className="mt-5 flex flex-row justify-between text-white">
             <div className="w-1/2">
                 <section id="home">
                   <div>
-                    <h1 className="text-5xl font-bold mt-10">
-                      Connecting people through music
+                    <h1 className="text-6xl font-bold mt-12">
+                      Aux
                     </h1>
-                    <h2 className="text-2xl mt-7">
-                      descriptiondescriptiondescriptiond<br></br>escriptiondescriptiondescr<br></br>iptiondescriptiondescript
+                    <h2 className="text-4xl mt-8">
+                    Connecting people through music
                     </h2>
-                    <ReviewCards reviews={reviews} reviewInd={reviewInd} reviewVis={reviewVis} />
+                    <h3 className="text-lg mt-8">
+                      descriptiondescriptiondescriptiond<br></br>escriptiondescriptiondescr<br></br>iptiondescriptiondescript
+                    </h3>
+                    <ReviewCarousel reviews={reviews}/>
                     <div className="flex flex-row items-center justify-between w-1/2">
                       <Link href="https://apps.apple.com/app" target="_blank">
                         <div className="">
