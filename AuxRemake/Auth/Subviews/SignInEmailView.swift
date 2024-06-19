@@ -1,8 +1,3 @@
-// SignInEmailView.swift
-// AuxRemake
-//
-// Created by Josh Grewal on 5/26/24.
-//
 import SwiftUI
 
 @MainActor
@@ -24,11 +19,17 @@ struct SignInEmailView: View {
     
     var body: some View {
         ZStack {
-            Image("SECOND")
+            Image("invertCrop")
                 .resizable()
                 .edgesIgnoringSafeArea(.all)
             
             VStack {
+                Text("  L  O  G  I  N  ")
+                    .font(.system(size: 48, weight: .bold)) // Adjusted font size
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .colorInvert()
+                
                 Spacer()
                     .frame(height: 170) // Adjust the height as needed to raise the title and image
                 
@@ -39,7 +40,6 @@ struct SignInEmailView: View {
                     .frame(width: 300)
                     .multilineTextAlignment(.center)
                     .padding()
-                    .background(Color.gray.opacity(0.4))
                     .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
@@ -50,7 +50,6 @@ struct SignInEmailView: View {
                     .frame(width: 300)
                     .multilineTextAlignment(.center)
                     .padding()
-                    .background(Color.gray.opacity(0.4))
                     .cornerRadius(10)
                     .overlay(
                         RoundedRectangle(cornerRadius: 10)
@@ -59,6 +58,7 @@ struct SignInEmailView: View {
                 
                 Spacer()
                     .frame(height: 50)
+                
                 Button {
                     Task {
                         do {
@@ -98,3 +98,12 @@ struct SignInEmailView: View {
         }
     }
 }
+
+// Preview struct for Xcode canvas
+struct SignInEmailView_Previews: PreviewProvider {
+    static var previews: some View {
+        SignInEmailView(showSignInView: .constant(true))
+    }
+}
+
+
