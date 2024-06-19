@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ReviewCarousel from "./_components/ReviewCarousel";
 
+
 export default function HomePage() {
   //let reviews = [["AMAZING APP I LOVE IT SO MUCH I SPEND 10 HOURS ON IT A DAY", "Josh"], ["review two", "nick"], ["review three", "patrick"], ["review four", "john"]];
   const reviews = [
@@ -32,51 +33,53 @@ export default function HomePage() {
           {/* <NavBar /> */}
           <div className="mt-5 flex flex-row justify-between text-white">
             <div className="w-1/2">
-                <section id="home">
-                  <div>
-                    <h1 className="text-6xl font-bold mt-12">
-                      Aux
-                    </h1>
-                    <h2 className="text-4xl mt-8">
+              <section id="home">
+                <div>
+                  <h1 className="text-6xl font-bold mt-12">
+                    Aux
+                  </h1>
+                  <h2 className="text-4xl mt-8">
                     Connecting people through music
-                    </h2>
-                    <h3 className="text-lg mt-8">
-                      descriptiondescriptiondescriptiond<br></br>escriptiondescriptiondescr<br></br>iptiondescriptiondescript
-                    </h3>
-                    <ReviewCarousel reviews={reviews}/>
-                    <div className="flex flex-row items-center justify-between w-1/2">
-                      <Link href="https://apps.apple.com/app" target="_blank">
-                        <div className="">
-                          <Image
-                            src="/appStore.svg"
-                            alt="app store"
-                            width={200}
-                            height={100}
-                          />
-                        </div>
-                      </Link>
-                      <Link href="https://play.google.com/store/apps" target="_blank">
-                        <div>
-                          <Image
-                            src="/googlePlayStore.png"
-                            alt="google play store"
-                            width={250}
-                            height={150}
-                          />
-                        </div>
-                      </Link>
-                    </div>
+                  </h2>
+                  <h3 className="text-lg mt-8">
+                    descriptiondescriptiondescriptiond<br></br>escriptiondescriptiondescr<br></br>iptiondescriptiondescript
+                  </h3>
+                  <ReviewCarousel
+                    reviews={reviews}
+                  />
+                  <div className="flex flex-row items-center justify-between w-1/2">
+                    <Link href="https://apps.apple.com/app" target="_blank">
+                      <div className="">
+                        <Image
+                          src="/appStore.svg"
+                          alt="app store"
+                          width={200}
+                          height={100}
+                        />
+                      </div>
+                    </Link>
+                    <Link href="https://play.google.com/store/apps" target="_blank">
+                      <div>
+                        <Image
+                          src="/googlePlayStore.png"
+                          alt="google play store"
+                          width={250}
+                          height={150}
+                        />
+                      </div>
+                    </Link>
                   </div>
-                </section>
-                <section id="about" className="h-screen bg-gray-900">
-                  about
-                </section>
-                <section id="faq" className="h-screen bg-gray-900">
-                  faq
-                </section>
-                <section id="contact" className="h-screen bg-gray-900">
-                  contact
-                </section>
+                </div>
+              </section>
+              <section id="about" className="h-screen bg-gray-900">
+                about
+              </section>
+              <section id="faq" className="h-screen bg-gray-900">
+                faq
+              </section>
+              <section id="contact" className="h-screen bg-gray-900">
+                contact
+              </section>
             </div>
             <div className="flex justify-center items-center w-1/2">
               SAMPLE CASE
